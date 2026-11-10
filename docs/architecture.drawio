@@ -1,0 +1,244 @@
+<mxfile host="app.diagrams.net" modified="2026-11-05" version="21.0.0">
+  <diagram name="Voice-to-Structured-Data Pipeline" id="architecture">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="Voice-to-Structured-Data Pipeline — Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="30" width="700" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ===== LANE BACKGROUNDS ===== -->
+
+        <!-- User Lane -->
+        <mxCell id="lane_user_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="200" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_user_label" value="User" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Transcription Lane -->
+        <mxCell id="lane_trans_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="220" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_trans_label" value="Transcription (Lab 3/5)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="280" y="100" width="220" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Extraction Lane -->
+        <mxCell id="lane_extract_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="520" y="100" width="220" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_extract_label" value="Extraction (Lab 4 — LangChain)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="520" y="100" width="220" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Embedding Lane -->
+        <mxCell id="lane_embed_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="760" y="100" width="220" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_embed_label" value="Embeddings (Lab 2)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="760" y="100" width="220" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Storage Lane (New Framework) -->
+        <mxCell id="lane_store_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="100" width="220" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_store_label" value="Vector Store — Qdrant (NEW)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=13;fontColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="100" width="220" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Serving Lane -->
+        <mxCell id="lane_serve_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0e6ff;strokeColor=#7a5c9e;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="100" width="220" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_serve_label" value="Serving (Lab 6 — FastAPI)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="100" width="220" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ===== NODES ===== -->
+
+        <!-- 1. Audio Input -->
+        <mxCell id="audio_input" value="🎤 Audio Input&#xa;(mp3 / wav / m4a)&#xa;Upload or Record" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="160" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 2. Streamlit UI -->
+        <mxCell id="streamlit_ui" value="🖥 Streamlit UI&#xa;Upload / Search / Results" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 3. FastAPI -->
+        <mxCell id="fastapi" value="⚡ FastAPI&#xa;/transcribe&#xa;/search&#xa;/export" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0e6ff;strokeColor=#7a5c9e;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="280" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- 4. Whisper -->
+        <mxCell id="whisper" value="🔊 OpenAI Whisper&#xa;Transcription&#xa;+ Timestamps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="220" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 5. Transcript -->
+        <mxCell id="transcript" value="📄 Raw Transcript&#xa;with Timestamps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="370" width="180" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- 6. LangChain Chain -->
+        <mxCell id="langchain" value="🔗 LangChain&#xa;Structured Extraction&#xa;Chain" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="290" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 6b. Pydantic Schema -->
+        <mxCell id="pydantic" value="🧩 Pydantic Schema&#xa;MeetingOutput&#xa;LectureOutput&#xa;(output parser)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="540" y="410" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 7. Prompt Templates -->
+        <mxCell id="prompts" value="📝 Prompt Templates&#xa;Meeting / Lecture&#xa;Interview / Note" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="540" y="500" width="180" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- 8. Structured JSON -->
+        <mxCell id="struct_json" value="📦 Structured JSON&#xa;action_items[]&#xa;summary, key_concepts[]&#xa;decisions[], tags[]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="540" y="600" width="180" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- 9. OpenAI Embeddings -->
+        <mxCell id="embeddings" value="🧠 OpenAI Embeddings&#xa;text-embedding-3-small&#xa;Transcript + Summary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="420" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 10. Qdrant -->
+        <mxCell id="qdrant" value="🗄 Qdrant&#xa;Vector Database&#xa;(Docker, local)&#xa;&#xa;stores: vectors + payload" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;fontColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="340" width="180" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- 11. Semantic Search -->
+        <mxCell id="search" value="🔍 Semantic Search&#xa;Query → Embed → ANN&#xa;Top-K Results" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="500" width="180" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- 12. Export -->
+        <mxCell id="export" value="📤 Export&#xa;JSON / Markdown / CSV" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0e6ff;strokeColor=#7a5c9e;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="420" width="160" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ===== LEGEND ===== -->
+        <mxCell id="legend_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="80" y="820" width="380" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="95" y="828" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="95" y="855" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1t" value="Lab 3/5 — Whisper / Multimodal" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="125" y="855" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="95" y="882" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2t" value="Lab 4 — LangChain" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="125" y="882" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="95" y="909" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3t" value="Lab 2 — Embeddings" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="125" y="909" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="265" y="855" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4t" value="NEW — Qdrant (new framework)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="293" y="855" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" value="" style="rounded=1;fillColor=#f0e6ff;strokeColor=#7a5c9e;" vertex="1" parent="1">
+          <mxGeometry x="265" y="882" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5t" value="Lab 6 — FastAPI (serving)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="293" y="882" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6" value="" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="265" y="909" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6t" value="User-facing (Streamlit UI)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="293" y="909" width="220" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ===== ARROWS ===== -->
+
+        <!-- User → Streamlit -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="audio_input" target="streamlit_ui" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Streamlit → FastAPI -->
+        <mxCell id="e2" value="HTTP request" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;" edge="1" source="streamlit_ui" target="fastapi" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- FastAPI → Whisper -->
+        <mxCell id="e3" value="audio bytes" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;" edge="1" source="fastapi" target="whisper" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Whisper → Transcript -->
+        <mxCell id="e4" value="transcript + timestamps" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;" edge="1" source="whisper" target="transcript" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Transcript → LangChain -->
+        <mxCell id="e5" value="raw text" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;" edge="1" source="transcript" target="langchain" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Pydantic → LangChain (config) -->
+        <mxCell id="e5b" value="output schema" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;dashed=1;" edge="1" source="pydantic" target="langchain" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Prompts → LangChain -->
+        <mxCell id="e6" value="prompt template" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;dashed=1;" edge="1" source="prompts" target="langchain" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- LangChain → Structured JSON -->
+        <mxCell id="e7" value="structured output" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;" edge="1" source="langchain" target="struct_json" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Structured JSON → Embeddings -->
+        <mxCell id="e8" value="text to embed" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;" edge="1" source="struct_json" target="embeddings" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Embeddings → Qdrant -->
+        <mxCell id="e9" value="vectors + payload" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;" edge="1" source="embeddings" target="qdrant" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Qdrant → Search -->
+        <mxCell id="e10" value="ANN search" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;" edge="1" source="qdrant" target="search" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Search → FastAPI (results back) -->
+        <mxCell id="e11" value="top-K results" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;" edge="1" source="search" target="fastapi" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- FastAPI → Export (terminal — no loop back) -->
+        <mxCell id="e12" value="JSON / MD / CSV" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;" edge="1" source="fastapi" target="export" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
